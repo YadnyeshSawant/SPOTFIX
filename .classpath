@@ -13,8 +13,12 @@
 	</classpathentry>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
-	<classpathentry kind="lib" path="C:/Users/Rashita/Downloads/apache-tomcat-10.1.52-windows-x64/apache-tomcat-10.1.52/lib/catalina.jar"/>
-	<classpathentry kind="lib" path="C:/Users/Rashita/Downloads/mysql-connector-j-9.6.0/mysql-connector-j-9.6.0/mysql-connector-j-9.6.0.jar">
+	<classpathentry kind="lib" path="D:/JAVA MIT/mysql-connector-j-9.6.0.jar">
+		<attributes>
+			<attribute name="module" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="lib" path="D:/JAVA MIT/Tomcat/apache-tomcat-10.1.52/lib/catalina.jar">
 		<attributes>
 			<attribute name="module" value="true"/>
 		</attributes>
