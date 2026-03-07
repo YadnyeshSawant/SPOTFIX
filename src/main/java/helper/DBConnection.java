@@ -13,7 +13,7 @@ public class DBConnection {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/SpotFix2.0",
+                "jdbc:mysql://localhost:3306/java",
                 "root",
                 "ChangePass@1"
             );
