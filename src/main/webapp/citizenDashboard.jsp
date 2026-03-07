@@ -5,9 +5,9 @@
 <%
 UserBean user = (UserBean) session.getAttribute("user");
 
-if(user == null){
-    response.sendRedirect("Login.jsp");
-    return;
+if (user == null) {
+	response.sendRedirect("Login.jsp");
+	return;
 }
 %>
 <!DOCTYPE html>
@@ -85,37 +85,41 @@ if(user == null){
 		<nav class="flex-1 px-4 space-y-2 mt-4">
 			<a
 				class="flex items-center gap-3 px-4 py-3 rounded-xl bg-primary/10 text-primary font-medium hover:bg-primary/20 transition-colors hover:underline"
-				href="#"> <span class="material-symbols-outlined">home</span>
+				href="#"> <span class="material-symbols-outlined">grid_view</span>
 				Dashboard
 			</a> <a
 				class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary dark:hover:text-primary transition-colors hover:underline"
-				href="#"> <span class="material-symbols-outlined">person</span>
-				Profile
+				href="CitizenProfile.html"> <span
+				class="material-symbols-outlined">account_circle</span> Profile
 			</a> <a
 				class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary dark:hover:text-primary transition-colors hover:underline"
-				href="#"> <span class="material-symbols-outlined">campaign</span>
+				href="citizenAnn.html"> <span class="material-symbols-outlined">campaign</span>
 				Announcements
 			</a> <a
 				class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary dark:hover:text-primary transition-colors hover:underline"
-				href="#"> <span class="material-symbols-outlined">assignment_late</span>
-				My Issues
+				href="CitizenMyIssues.jsp"> <span
+				class="material-symbols-outlined">assignment_late</span> My Issues
 			</a> <a
 				class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary dark:hover:text-primary transition-colors hover:underline"
-				href="#"> <span class="material-symbols-outlined">lightbulb</span>
-				Project Ideas
+				href="#"> <span class="material-symbols-outlined">groups</span>
+				Community Issues
 			</a> <a
 				class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary dark:hover:text-primary transition-colors hover:underline"
-				href="#"> <span class="material-symbols-outlined">map</span>
-				Issues Map
+				href="#"> <span class="material-symbols-outlined">tips_and_updates</span>
+				My Project Ideas
+			</a> <a
+				class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary dark:hover:text-primary transition-colors hover:underline"
+				href="#"> <span class="material-symbols-outlined">handshake</span>
+				Community Projects
+			</a> <a
+				class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary dark:hover:text-primary transition-colors hover:underline"
+				href="#"> <span class="material-symbols-outlined">account_balance</span>
+				Government Project
 			</a>
 		</nav>
 		<div
 			class="p-4 mt-auto border-t border-slate-200 dark:border-slate-800">
-			<a
-				class="flex items-center gap-3 px-4 py-3 rounded-xl text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-white/5 hover:text-primary dark:hover:text-primary transition-colors hover:underline"
-				href="#"> <span class="material-symbols-outlined">settings</span>
-				Settings
-			</a> <a
+			 <a
 				class="flex items-center gap-3 px-4 py-3 rounded-xl text-red-500 hover:bg-red-50 dark:hover:bg-red-500/10 transition-colors hover:underline"
 				href="#"> <span class="material-symbols-outlined">logout</span>
 				Logout
@@ -432,29 +436,30 @@ if(user == null){
 		</div>
 	</main>
 	<div class="fixed bottom-8 right-8 z-[60] group">
-    
-    <div class="absolute bottom-full right-0 pb-4 w-56 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all pointer-events-none group-hover:pointer-events-auto">
-        
-        <div class="bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl overflow-hidden">
-            <a href="registerIssue.jsp"
-               class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-primary/10 hover:text-primary transition-colors">
-                <span class="material-symbols-outlined text-lg">report_problem</span>
-                Create Your Report
-            </a>
 
-            <a href="citizenProject.jsp"
-               class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-primary/10 hover:text-primary transition-colors">
-                <span class="material-symbols-outlined text-lg">lightbulb</span>
-                Propose Your Project
-            </a>
-        </div>
+		<div
+			class="absolute bottom-full right-0 pb-4 w-56 opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all pointer-events-none group-hover:pointer-events-auto">
 
-    </div>
+			<div
+				class="bg-white dark:bg-card-dark border border-slate-200 dark:border-slate-800 rounded-xl shadow-xl overflow-hidden">
+				<a href="registerIssue.jsp"
+					class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-primary/10 hover:text-primary transition-colors">
+					<span class="material-symbols-outlined text-lg">report_problem</span>
+					Create Your Report
+				</a> <a href="citizenProject.jsp"
+					class="flex items-center gap-3 px-4 py-3 text-sm font-medium text-slate-700 dark:text-slate-300 hover:bg-primary/10 hover:text-primary transition-colors">
+					<span class="material-symbols-outlined text-lg">lightbulb</span>
+					Propose Your Project
+				</a>
+			</div>
 
-    <div class="w-16 h-16 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all cursor-pointer">
-        <span class="material-symbols-outlined text-4xl">add</span>
-    </div>
-</div>
+		</div>
+
+		<div
+			class="w-16 h-16 bg-primary text-white rounded-full shadow-2xl shadow-primary/40 flex items-center justify-center hover:scale-110 active:scale-95 transition-all cursor-pointer">
+			<span class="material-symbols-outlined text-4xl">add</span>
+		</div>
+	</div>
 	<nav
 		class="lg:hidden fixed bottom-0 left-0 right-0 bg-white dark:bg-card-dark border-t border-slate-200 dark:border-slate-800 flex justify-around items-center py-2 px-4 z-50">
 		<a
