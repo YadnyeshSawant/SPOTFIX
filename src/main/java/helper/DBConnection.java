@@ -15,7 +15,7 @@ public class DBConnection {
             con = DriverManager.getConnection(
                 "jdbc:mysql://localhost:3306/java",
                 "root",
-                "ChangePass@1"
+                "root123"
             );
 
         } catch (ClassNotFoundException | SQLException e) {

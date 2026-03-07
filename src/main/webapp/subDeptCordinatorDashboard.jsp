@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
+<%@ page import="beans.UserBean"%>
+<%
+UserBean user = (UserBean) session.getAttribute("user");
+
+if(user == null){
+    response.sendRedirect("Login.jsp");
+    return;
+}
+%>
+
 <html lang="en">
 <head></head>
 <body
@@ -10,7 +21,7 @@
 
 	<meta charset="utf-8" />
 	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<title>Sub-Department Coordinator Dashboard - Gomes</title>
+	<title>Sub-Department Coordinator Dashboard - <%=user.getFull_name()%></title>
 	<link
 		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
 		rel="stylesheet" />
@@ -63,7 +74,7 @@
 					class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white font-bold text-lg border border-white/30">
 					G</div>
 				<div>
-					<h2 class="font-bold text-white text-sm leading-tight">Gomes</h2>
+					<h2 class="font-bold text-white text-sm leading-tight"><%=user.getFull_name()%></h2>
 					<p
 						class="text-[10px] text-white/80 font-medium uppercase tracking-wider">Sub-Dept
 						Coordinator</p>
@@ -74,12 +85,12 @@
 			<ul class="space-y-1">
 				<li><a
 					class="flex items-center px-6 py-3 text-accent-orange sidebar-item-active font-medium"
-					href="/dashboard"> <span class="material-symbols-outlined mr-3">dashboard</span>
+					href="subDeptCordinatorDashboard.jsp"> <span class="material-symbols-outlined mr-3">dashboard</span>
 						Dashboard
 				</a></li>
 				<li><a
 					class="flex items-center px-6 py-3 text-slate-300 hover:bg-white/5 transition-colors"
-					href="/reported-issues"> <span
+					href="subReportedIssues.jsp"> <span
 						class="material-symbols-outlined mr-3">report_problem</span>
 						Reported Issues
 				</a></li>
@@ -108,7 +119,7 @@
 		<header class="mb-8 flex justify-between items-center">
 			<div>
 				<h1 class="text-2xl font-bold text-white">Coordinator Dashboard</h1>
-				<p class="text-slate-400">Welcome back, Gomes. Monitoring
+				<p class="text-slate-400">Welcome back, <%=user.getFull_name()%>. Monitoring
 					sub-department activity.</p>
 			</div>
 			<div class="flex items-center space-x-4">
