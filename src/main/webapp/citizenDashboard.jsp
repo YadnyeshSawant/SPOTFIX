@@ -1,5 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ page import="beans.UserBean"%>
+<%
+UserBean user = (UserBean) session.getAttribute("user");
+
+if(user == null){
+    response.sendRedirect("Login.jsp");
+    return;
+}
+%>
 <!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
@@ -115,8 +125,9 @@
 	<main class="lg:ml-64 p-4 lg:p-8">
 		<header class="flex items-center justify-between mb-8">
 			<div>
-				<h1 class="text-2xl font-bold dark:text-white">Welcome back,
-					Aaron</h1>
+				<h1 class="text-2xl font-bold dark:text-white">
+					Welcome back,
+					<%= user.getFull_name()%></h1>
 				<p class="text-slate-500 dark:text-slate-400 text-sm">Stay
 					updated with your local community happenings.</p>
 			</div>
