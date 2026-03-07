@@ -17,7 +17,7 @@ public class UserDAO {
         	Connection con = DBConnection.getConnection();
         	
             PreparedStatement ps = con.prepareStatement(
-                "SELECT * FROM user WHERE email=? AND user_password=?"
+                "SELECT * FROM users WHERE email=? AND user_password=?"
             );
 
             ps.setString(1, uname);

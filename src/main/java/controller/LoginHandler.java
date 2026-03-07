@@ -50,30 +50,29 @@ public class LoginHandler extends HttpServlet {
 		UserDAO ud = new UserDAO();
 		UserBean user = ud.validateUser(uname, upass);
 
-		if (user.getUser_type().equals("citizen")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			response.sendRedirect("citizenDashboard.jsp");
+		if(user == null){
+		    response.getWriter().print("Invalid Username or Password");
+		    return;
+		}
 
-			// enum('citizen','department_coordinator','sub_branch_coordinator','super_admin')
+		HttpSession session = request.getSession();
+		session.setAttribute("user", user);
+
+		if (user.getUser_type().equals("citizen")) {
+
+		    request.getRequestDispatcher("citizenDashboard.jsp").forward(request, response);
+
 		} else if (user.getUser_type().equals("department_coordinator")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			response.sendRedirect("deptCoordinator.jsp");
+
+		    response.sendRedirect("deptCoordinatorDashboard.jsp");
 
 		} else if (user.getUser_type().equals("sub_branch_coordinator")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			request.getRequestDispatcher("subDeptCordinator.jsp").forward(request, response);
+
+		    request.getRequestDispatcher("subDeptCordinatorDashboard.jsp").forward(request, response);
 
 		} else if (user.getUser_type().equals("super_admin")) {
-			HttpSession session = request.getSession();
-			session.setAttribute("user", user);
-			response.sendRedirect("superAdmin.jsp");
 
-		} else {
-			response.getWriter().print("Invalid Username or Password");
-
+		    request.getRequestDispatcher("superAdmin.jsp").forward(request, response);
 		}
 	}
 
