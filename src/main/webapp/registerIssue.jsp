@@ -153,12 +153,27 @@
 						</div>
 						<div class="space-y-1">
 							<label
-								class="block text-xs font-semibold text-gray-700 dark:text-gray-300 ml-1">Select
-								Department</label> <a
-								class="w-full bg-accent hover:bg-orange-500 text-white rounded-lg py-2 px-3 flex items-center justify-between transition-all shadow-md cursor-pointer active:scale-[0.98]"
-								href="#"> <span class="font-semibold text-sm">Choose
-									department</span> <span class="material-symbols-outlined text-sm">expand_more</span>
-							</a>
+								class="block text-[11px] font-bold text-slate-500 dark:text-gray-400 uppercase tracking-widest mb-2 ml-1">
+								Select Department </label>
+
+							<div class="relative group">
+								<select name="department"
+									class="w-full bg-[var(--input-dark)] dark:bg-slate-800/50 border border-white/5 text-white font-semibold text-sm rounded-2xl py-4 px-5 appearance-none cursor-pointer focus:ring-2 focus:ring-[var(--primary)] focus:border-transparent transition-all outline-none shadow-md group-hover:bg-[#32363e]"
+									required>
+									<option value="" disabled selected>Choose department</option>
+									<option value="electricity" class="bg-[#1E2127]">Electricity
+										Department</option>
+									<option value="transport" class="bg-[#1E2127]">Transport
+										Department</option>
+									<option value="water" class="bg-[#1E2127]">Water
+										Department</option>
+								</select>
+
+								<div
+									class="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none text-slate-400 group-focus-within:text-[var(--primary)] transition-colors">
+									
+								</div>
+							</div>
 						</div>
 					</div>
 					<div class="md:col-span-2 space-y-1 mt-1">
@@ -175,7 +190,7 @@
 					class="flex items-center justify-center pt-4 mt-auto border-t border-gray-100 dark:border-gray-700">
 					<a
 						class="w-full max-w-lg bg-orange-500 hover:bg-orange-600 text-white font-bold text-lg py-3 rounded-full text-center shadow-lg hover:shadow-orange-500/30 transition-all cursor-pointer active:scale-[0.99] flex items-center justify-center gap-2"
-						href="#"> <span>Submit Report</span> <span
+						href="citizenSuccess.jsp"> <span>Submit Report</span> <span
 						class="material-symbols-outlined">send</span>
 					</a>
 				</div>

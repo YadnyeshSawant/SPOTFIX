@@ -1,5 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+
+<%@ page import="beans.UserBean"%>
+<%
+UserBean user = (UserBean) session.getAttribute("user");
+
+if (user == null) {
+	response.sendRedirect("Login.jsp");
+	return;
+}
+%>
+
 <!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
@@ -68,106 +79,96 @@
 <body
 	class="bg-slate-50 dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex">
 	<aside
-		class="w-80 flex-shrink-0 bg-white dark:bg-sidebar-dark border-r border-slate-200 dark:border-slate-800 flex flex-col h-screen sticky top-0">
-		<div class="p-6">
+		class="w-80 bg-[#16181A] border-r border-white/5 flex flex-col h-screen shrink-0">
+		<div class="p-8 flex flex-col h-full">
 			<div
-				class="gradient-header p-6 rounded-2xl text-white shadow-lg mb-8">
-				<h2 class="text-2xl font-bold mb-1">Hello John</h2>
-				<p class="text-white/80 text-sm font-medium">Department
+				class="bg-gradient-to-br from-[#818CF8] to-[#6366F1] rounded-2xl p-6 mb-8 shadow-lg shadow-indigo-500/10">
+				<h2 class="text-xl font-bold text-white leading-tight">Hello
+					<%=user.getFull_name()%></h2>
+				<p class="text-indigo-100/80 text-xs font-medium mt-1">Department
 					Coordinator</p>
 			</div>
-			<nav class="space-y-3">
+
+			<nav class="flex-1 space-y-5 px-1">
 				<a
-					class="sidebar-active flex items-center gap-4 px-6 py-4 rounded-full transition-all shadow-md"
-					href="#"> <span class="material-symbols-outlined">dashboard</span>
-					<span class="font-medium">DashBoard</span>
+					class="flex items-center space-x-4 text-slate-400 hover:text-white transition-colors py-2.5"
+					href="deptCoordinatorDashboard.jsp"> <span
+					class="material-symbols-outlined text-[22px]">grid_view</span> <span
+					class="font-medium text-[15px]">DashBoard</span>
 				</a> <a
-					class="flex items-center gap-4 px-6 py-4 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
-					href="#"> <span class="material-symbols-outlined">account_tree</span>
-					<span class="font-medium">Manage Sub Branch...</span>
+					class="flex items-center space-x-4 text-slate-400 hover:text-white transition-colors py-2.5"
+					href="#"> <span class="material-symbols-outlined text-[22px]">account_tree</span>
+					<span class="font-medium text-[15px]">Manage Sub Branch...</span>
 				</a> <a
-					class="flex items-center gap-4 px-6 py-4 rounded-full text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all"
-					href="#"> <span class="material-symbols-outlined">person</span>
-					<span class="font-medium">Profile</span>
+					class="flex items-center space-x-4 text-slate-400 hover:text-white transition-colors py-2.5"
+					href="#"> <span class="material-symbols-outlined text-[22px]">account_tree</span>
+					<span class="font-medium text-[15px]">Projects Proposed</span>
+				</a> <a
+					class="flex items-center space-x-4 text-slate-400 hover:text-white transition-colors py-2.5"
+					href="#"> <span class="material-symbols-outlined text-[22px]">person</span>
+					<span class="font-medium text-[15px]">Profile</span>
 				</a>
 			</nav>
+
+			<div class="mt-auto pt-6 border-t border-white/5">
+				<a
+					class="flex items-center gap-4 px-2 py-2 text-slate-400 hover:text-red-400 transition-colors"
+					href="#"> <span class="material-symbols-outlined">logout</span>
+					<span class="text-sm font-medium">Log Out</span>
+				</a>
+			</div>
 		</div>
 	</aside>
-	<main class="flex-grow p-10 overflow-y-auto">
-		<header class="mb-12">
-			<p
-				class="text-slate-500 dark:text-slate-400 text-xl mb-2 font-medium">Hey
-				John</p>
-			<h1 class="text-4xl font-extrabold text-charcoal dark:text-white">What's
-				On Your Mind?</h1>
-		</header>
-		<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
-			<div
-				class="bg-charcoal dark:bg-charcoal p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between h-[360px] border-l-8 border-primary group transition-all hover:translate-y-[-4px] shadow-xl">
-				<div class="max-w-[70%] relative z-10">
-					<h3 class="text-3xl font-semibold text-white leading-tight mb-8">
-						Keep the public informed, Send Announcement!</h3>
-					<a
-						class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-orange-600 transition-colors shadow-lg"
-						href="#"> New Announcement </a>
-				</div>
-				<div class="absolute right-8 bottom-8">
-					<span
-						class="material-symbols-outlined text-[160px] text-white/10 select-none">campaign</span>
-				</div>
-				<div
-					class="absolute -top-12 -right-12 w-40 h-40 bg-primary/5 rounded-full"></div>
-			</div>
-			<div
-				class="bg-charcoal dark:bg-charcoal p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between h-[360px] border-l-8 border-primary group transition-all hover:translate-y-[-4px] shadow-xl">
-				<div class="max-w-[70%] relative z-10">
-					<h3 class="text-3xl font-semibold text-white leading-tight mb-8">
-						Got a plan? Propose your project here!</h3>
-					<a
-						class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-orange-600 transition-colors shadow-lg"
-						href="#"> New Project Idea </a>
-				</div>
-				<div class="absolute right-8 bottom-8">
-					<span
-						class="material-symbols-outlined text-[160px] text-white/10 select-none">lightbulb</span>
-				</div>
-				<div
-					class="absolute -top-12 -right-12 w-40 h-40 bg-primary/5 rounded-full"></div>
-			</div>
-			<div
-				class="bg-charcoal dark:bg-charcoal p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between h-[360px] border-l-8 border-primary group transition-all hover:translate-y-[-4px] shadow-xl">
-				<div class="max-w-[70%] relative z-10">
-					<h3 class="text-3xl font-semibold text-white leading-tight mb-8">
-						Review pending department requests.</h3>
-					<a
-						class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-orange-600 transition-colors shadow-lg"
-						href="#"> View Requests </a>
-				</div>
-				<div class="absolute right-8 bottom-8">
-					<span
-						class="material-symbols-outlined text-[160px] text-white/10 select-none">assignment</span>
-				</div>
-				<div
-					class="absolute -top-12 -right-12 w-40 h-40 bg-primary/5 rounded-full"></div>
-			</div>
-			<div
-				class="bg-charcoal dark:bg-charcoal p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between h-[360px] border-l-8 border-primary group transition-all hover:translate-y-[-4px] shadow-xl">
-				<div class="max-w-[70%] relative z-10">
-					<h3 class="text-3xl font-semibold text-white leading-tight mb-8">
-						Generate monthly performance reports.</h3>
-					<a
-						class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-orange-600 transition-colors shadow-lg"
-						href="#"> Generate Report </a>
-				</div>
-				<div class="absolute right-8 bottom-8">
-					<span
-						class="material-symbols-outlined text-[160px] text-white/10 select-none">bar_chart</span>
-				</div>
-				<div
-					class="absolute -top-12 -right-12 w-40 h-40 bg-primary/5 rounded-full"></div>
-			</div>
-		</div>
-	</main>
 
+	<main class="flex-1 flex flex-col h-screen overflow-hidden">
+		<div class="px-10 py-10 max-w-7xl w-full mx-auto flex flex-col h-full">
+			<aside>
+				
+				<main class="flex-grow p-10 overflow-y-auto">
+					<header class="mb-12">
+						<p
+							class="text-slate-500 dark:text-slate-400 text-xl mb-2 font-medium">
+							Hey
+							<%=user.getFull_name()%></p>
+						<h1 class="text-4xl font-extrabold text-charcoal dark:text-white">What's
+							On Your Mind?</h1>
+					</header>
+					<div class="grid grid-cols-1 xl:grid-cols-2 gap-8">
+						<div
+							class="bg-charcoal dark:bg-charcoal p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between h-[360px] border-l-8 border-primary group transition-all hover:translate-y-[-4px] shadow-xl">
+							<div class="max-w-[70%] relative z-10">
+								<h3 class="text-3xl font-semibold text-white leading-tight mb-8">
+									Keep the public informed, Send Announcement!</h3>
+								<a
+									class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-orange-600 transition-colors shadow-lg"
+									href="deptAnnRegister.jsp"> New Announcement </a>
+							</div>
+							<div class="absolute right-8 bottom-8">
+								<span
+									class="material-symbols-outlined text-[160px] text-white/10 select-none">campaign</span>
+							</div>
+							<div
+								class="absolute -top-12 -right-12 w-40 h-40 bg-primary/5 rounded-full"></div>
+						</div>
+						<div
+							class="bg-charcoal dark:bg-charcoal p-10 rounded-3xl relative overflow-hidden flex flex-col justify-between h-[360px] border-l-8 border-primary group transition-all hover:translate-y-[-4px] shadow-xl">
+							<div class="max-w-[70%] relative z-10">
+								<h3 class="text-3xl font-semibold text-white leading-tight mb-8">
+									Got a plan? Propose your project here!</h3>
+								<a
+									class="inline-flex items-center px-8 py-4 bg-primary text-white rounded-full font-bold hover:bg-orange-600 transition-colors shadow-lg"
+									href="deptProjectRegister.jsp"> New Project Idea </a>
+							</div>
+							<div class="absolute right-8 bottom-8">
+								<span
+									class="material-symbols-outlined text-[160px] text-white/10 select-none">lightbulb</span>
+							</div>
+							<div
+								class="absolute -top-12 -right-12 w-40 h-40 bg-primary/5 rounded-full"></div>
+						</div>
+						
+						
+					</div>
+				</main>
 </body>
 </html>
