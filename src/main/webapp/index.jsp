@@ -1,18 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html class="light" lang="en">
+<html class="dark" lang="en">
 <head>
 <meta charset="utf-8" />
 <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-<title>Web App Welcome &amp; Authentication</title>
+<title>Web App Welcome & Authentication</title>
 <script
 	src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
 <link
-	href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap"
+	href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
 	rel="stylesheet" />
 <link
-	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
 	rel="stylesheet" />
 <script>
 	tailwind.config = {
@@ -22,7 +22,7 @@
 				colors : {
 					primary : "#F79F1A",
 					"background-light" : "#FFFFFF",
-					"background-dark" : "#2E3137", // Updated to dark charcoal/gray
+					"background-dark" : "#2E3137",
 				},
 				fontFamily : {
 					display : [ "Plus Jakarta Sans", "sans-serif" ],
@@ -34,6 +34,7 @@
 			},
 		},
 	};
+
 	function toggleDarkMode() {
 		document.documentElement.classList.toggle('dark');
 	}
@@ -49,7 +50,7 @@
 </head>
 <body
 	class="bg-background-light dark:bg-background-dark transition-colors duration-300 min-h-screen flex items-center justify-center p-4">
-	
+
 	<main
 		class="w-full max-w-6xl flex flex-col md:flex-row bg-white dark:bg-[#3d4148] rounded-3xl overflow-hidden shadow-2xl min-h-[700px]">
 		<div
@@ -103,7 +104,7 @@
 						</div>
 					</div>
 					<div class="mt-8 text-center text-white">
-						<h1 class="text-4xl font-extrabold mb-4">Secure &amp; Simple</h1>
+						<h1 class="text-4xl font-extrabold mb-4">Secure & Simple</h1>
 						<p class="text-orange-50/80 max-w-xs mx-auto leading-relaxed">
 							Experience the next generation of secure web applications with
 							our intuitive interface.</p>
@@ -124,17 +125,19 @@
 					<p class="text-slate-500 dark:text-slate-400">Please choose an
 						option to continue</p>
 				</div>
+
 				<div class="space-y-6">
-					<a
-						class="w-full py-5 px-8 bg-white dark:bg-[#2E3137] text-slate-900 dark:text-white font-bold text-lg rounded-button shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all border border-slate-100 dark:border-slate-700 flex items-center justify-center group"
-						href="Login.jsp"> Log In <span
+					<a href="Login.jsp"
+						class="w-full py-5 px-8 bg-white dark:bg-[#2E3137] text-slate-900 dark:text-white font-bold text-lg rounded-button shadow-lg hover:shadow-xl hover:-translate-y-0.5 transition-all border border-slate-100 dark:border-slate-700 flex items-center justify-center group">
+						Log In <span
 						class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">login</span>
-					</a> <a
-						class="w-full py-5 px-8 bg-primary text-white font-bold text-lg rounded-button shadow-[0_10px_30px_-10px_rgba(247,159,26,0.5)] hover:bg-[#e68d00] hover:-translate-y-0.5 transition-all flex items-center justify-center group"
-						href="Signup.jsp"> Sign Up <span
+					</a> <a href="SignUp.jsp"
+						class="w-full py-5 px-8 bg-primary text-white font-bold text-lg rounded-button shadow-[0_10px_30px_-10px_rgba(247,159,26,0.5)] hover:bg-[#e68d00] hover:-translate-y-0.5 transition-all flex items-center justify-center group">
+						Sign Up <span
 						class="material-symbols-outlined ml-2 transition-transform group-hover:translate-x-1">person_add</span>
 					</a>
 				</div>
+				
 				<div class="mt-12">
 					<p class="text-xs text-slate-400 dark:text-slate-500">
 						By continuing, you agree to our <a
