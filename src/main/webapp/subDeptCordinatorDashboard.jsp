@@ -1,57 +1,56 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	
+
 <%@ page import="beans.UserBean"%>
 <%
 UserBean user = (UserBean) session.getAttribute("user");
 
-if(user == null){
-    response.sendRedirect("Login.jsp");
-    return;
+if (user == null) {
+	response.sendRedirect("Login.jsp");
+	return;
 }
 %>
 
 <html lang="en">
 <head></head>
-<body
-	class="text-slate-100 min-h-screen flex selection:bg-orange-500/30">
-	```html
 
 
 
-	<meta charset="utf-8" />
-	<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<title>Sub-Department Coordinator Dashboard - <%=user.getFull_name()%></title>
-	<link
-		href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
-		rel="stylesheet" />
-	<link
-		href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
-		rel="stylesheet" />
-	<script
-		src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
-	<script>
-		tailwind.config = {
-			darkMode : "class",
-			theme : {
-				extend : {
-					colors : {
-						primary : "#F59E0B",
-						"dark-charcoal" : "#2E3137",
-						"card-dark" : "#373A40",
-						"accent-orange" : "#F59E0B",
-					},
-					fontFamily : {
-						display : [ "Inter", "sans-serif" ],
-					},
-					borderRadius : {
-						DEFAULT : "12px",
-					},
+
+<meta charset="utf-8" />
+<meta content="width=device-width, initial-scale=1.0" name="viewport" />
+<title>Sub-Department Coordinator Dashboard - <%=user.getFull_name()%></title>
+<link
+	href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+	rel="stylesheet" />
+<link
+	href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+	rel="stylesheet" />
+<script
+	src="https://cdn.tailwindcss.com?plugins=forms,typography,container-queries"></script>
+<script>
+	tailwind.config = {
+		darkMode : "class",
+		theme : {
+			extend : {
+				colors : {
+					primary : "#F59E0B",
+					"dark-charcoal" : "#2E3137",
+					"card-dark" : "#373A40",
+					"accent-orange" : "#F59E0B",
+				},
+				fontFamily : {
+					display : [ "Inter", "sans-serif" ],
+				},
+				borderRadius : {
+					DEFAULT : "12px",
 				},
 			},
-		};
-	</script>
-	<style type="text/tailwindcss">
+		},
+	};
+</script>
+
+<style type="text/tailwindcss">
         :root {
             --bg-color: #2E3137;
             --coordinator-gradient: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
@@ -63,64 +62,17 @@ if(user == null){
         .custom-scrollbar::-webkit-scrollbar-thumb { background: #4B5563; border-radius: 10px; }
         .coordinator-accent-bg { background: var(--coordinator-gradient); }
     </style>
-
-
-	<aside
-		class="w-64 bg-[#25282D] border-r border-white/10 flex flex-col fixed h-full z-20">
-		<div class="p-4 border-b border-white/10">
-			<div
-				class="coordinator-accent-bg rounded-xl p-3 flex items-center space-x-3 shadow-lg shadow-indigo-500/10">
-				<div
-					class="w-10 h-10 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white font-bold text-lg border border-white/30">
-					G</div>
-				<div>
-					<h2 class="font-bold text-white text-sm leading-tight"><%=user.getFull_name()%></h2>
-					<p
-						class="text-[10px] text-white/80 font-medium uppercase tracking-wider">Sub-Dept
-						Coordinator</p>
-				</div>
-			</div>
-		</div>
-		<nav class="flex-grow py-6">
-			<ul class="space-y-1">
-				<li><a
-					class="flex items-center px-6 py-3 text-accent-orange sidebar-item-active font-medium"
-					href="subDeptCordinatorDashboard.jsp"> <span class="material-symbols-outlined mr-3">dashboard</span>
-						Dashboard
-				</a></li>
-				<li><a
-					class="flex items-center px-6 py-3 text-slate-300 hover:bg-white/5 transition-colors"
-					href="subReportedIssues.jsp"> <span
-						class="material-symbols-outlined mr-3">report_problem</span>
-						Reported Issues
-				</a></li>
-				<li><a
-					class="flex items-center px-6 py-3 text-slate-300 hover:bg-white/5 transition-colors"
-					href="/resolved-cases"> <span
-						class="material-symbols-outlined mr-3">task_alt</span> Resolved
-						Cases
-				</a></li>
-				<li><a
-					class="flex items-center px-6 py-3 text-slate-300 hover:bg-white/5 transition-colors"
-					href="/profile"> <span class="material-symbols-outlined mr-3">person</span>
-						Profile
-				</a></li>
-			</ul>
-		</nav>
-		<div class="p-6 border-t border-white/10">
-			<a
-				class="flex items-center text-red-400 hover:text-red-300 font-medium transition-colors"
-				href="/logout"> <span class="material-symbols-outlined mr-3">logout</span>
-				Log Out
-			</a>
-		</div>
-	</aside>
+<body
+	class="text-slate-100 min-h-screen flex selection:bg-orange-500/30">
+	<jsp:include page="subDeptNavbar.jsp" />
 	<main class="flex-grow ml-64 p-8 bg-dark-charcoal">
 		<header class="mb-8 flex justify-between items-center">
 			<div>
 				<h1 class="text-2xl font-bold text-white">Coordinator Dashboard</h1>
-				<p class="text-slate-400">Welcome back, <%=user.getFull_name()%>. Monitoring
-					sub-department activity.</p>
+				<p class="text-slate-400">
+					Welcome back,
+					<%=user.getFull_name()%>. Monitoring sub-department activity.
+				</p>
 			</div>
 			<div class="flex items-center space-x-4">
 				<button

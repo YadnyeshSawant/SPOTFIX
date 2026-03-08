@@ -57,7 +57,7 @@ public class LoginHandler extends HttpServlet {
 
 		HttpSession session = request.getSession();
 		session.setAttribute("user", user);
-
+		System.out.println(user.getUser_id());
 		if (user.getUser_type().equals("citizen")) {
 
 		    request.getRequestDispatcher("citizenDashboard.jsp").forward(request, response);

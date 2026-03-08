@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	<%@ page import="beans.Issue" %>
+
+<%
+Issue issue = (Issue) request.getAttribute("issue");
+%>
 <!DOCTYPE html>
 <html class="dark" lang="en">
 <head>
@@ -112,20 +117,10 @@ body {
 			<div class="flex items-center space-x-2">
 				<span class="text-slate-400 text-sm">Reported Issues</span> <span
 					class="material-icons text-slate-400 text-sm">chevron_right</span>
-				<span class="text-slate-900 dark:text-white font-semibold text-sm">Issue
-					#WTR-402</span>
+				<span class="text-slate-900 dark:text-white font-semibold text-sm">ISSUE ID : <%= issue.getIssue_id() %>
+					</span>
 			</div>
-			<div class="flex items-center space-x-4">
-				<button
-					class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
-					<span class="material-icons text-xl">search</span>
-				</button>
-				<button
-					class="w-10 h-10 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors relative">
-					<span class="material-icons text-xl">notifications</span> <span
-						class="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full border-2 border-white dark:border-sidebar-dark"></span>
-				</button>
-			</div>
+			
 		</header>
 		<div class="flex-1 overflow-hidden p-8 flex gap-8">
 			<div class="flex-[1.5] overflow-y-auto custom-scrollbar pr-2">
@@ -134,7 +129,7 @@ body {
 						<h1 class="text-2xl font-bold text-slate-900 dark:text-white mb-1">Issue
 							Verification</h1>
 						<p class="text-slate-500 dark:text-slate-400 text-sm">Reviewing
-							submission from Panaji District Coordinator</p>
+							submission from <%= issue.getDepartment_name() %> Department</p>
 					</div>
 					<span
 						class="px-3 py-1 bg-blue-100 dark:bg-blue-500/20 text-blue-600 dark:text-blue-400 text-xs font-bold rounded-full uppercase tracking-wider">Under
@@ -148,27 +143,20 @@ body {
 								<label
 									class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 block">Report
 									Title</label>
-								<p class="text-lg font-semibold text-slate-900 dark:text-white">Water
-									Leakage in Main Square Pipe</p>
+								<p class="text-lg font-semibold text-slate-900 dark:text-white"><%= issue.getTitle() %></p>
 							</div>
 							<div class="col-span-2">
 								<label
 									class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 block">Detailed
 									Description</label>
 								<p
-									class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">The
-									main water supply pipe under the cobblestones in the North-East
-									corner of the Main Square has burst. Water is pooling
-									significantly, affecting local shop access and creating a slip
-									hazard. This has been active for approximately 4 hours.</p>
+									class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed"><%= issue.getIssue_description() %></p>
 							</div>
 							<div class="col-span-2">
 								<label
 									class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-2 block">Suggestions
 									from Reporter</label>
-								<p class="text-sm text-slate-600 dark:text-slate-300 italic">"Recommend
-									immediate shutoff of the Sector 4 valve and replacement of the
-									8-inch gasket."</p>
+								<p class="text-sm text-slate-600 dark:text-slate-300 italic"><%= issue.getSuggestions() %></p>
 							</div>
 						</div>
 					</section>
@@ -184,27 +172,25 @@ body {
 								<label
 									class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 block">District</label>
 								<p
-									class="text-sm font-medium text-slate-900 dark:text-slate-200">North
-									Goa</p>
+									class="text-sm font-medium text-slate-900 dark:text-slate-200"><%= issue.getDistrict() %></p>
 							</div>
 							<div>
 								<label
 									class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 block">Taluka</label>
 								<p
-									class="text-sm font-medium text-slate-900 dark:text-slate-200">Tiswadi</p>
+									class="text-sm font-medium text-slate-900 dark:text-slate-200"><%= issue.getTaluka() %></p>
 							</div>
 							<div>
 								<label
 									class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 block">Pincode</label>
 								<p
-									class="text-sm font-medium text-slate-900 dark:text-slate-200">403001</p>
+									class="text-sm font-medium text-slate-900 dark:text-slate-200"><%= issue.getPincode() %></p>
 							</div>
 							<div class="col-span-3 pt-2">
 								<label
 									class="text-[10px] font-bold text-slate-400 uppercase tracking-widest mb-1 block">Specific
 									Location Description</label>
-								<p class="text-sm text-slate-600 dark:text-slate-300">Near
-									the old banyan tree, directly opposite the primary school gate.</p>
+								<p class="text-sm text-slate-600 dark:text-slate-300"><%= issue.getLocality() %></p>
 							</div>
 						</div>
 					</section>
