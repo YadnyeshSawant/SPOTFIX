@@ -71,7 +71,7 @@
 			<div class="w-full">
 				<a
 					class="group relative flex items-center justify-center w-full bg-primary hover:bg-orange-600 text-white font-bold py-5 px-8 rounded-full transition-all duration-200 shadow-lg shadow-orange-500/20 active:scale-[0.98]"
-					href="#"> <span class="text-xl">Go Back to Dashboard</span> <span
+					href="citizenDashboard.jsp"> <span class="text-xl">Go Back to Dashboard</span> <span
 					class="material-icons-outlined ml-3 transition-transform group-hover:translate-x-1">arrow_forward</span>
 				</a>
 			</div>
